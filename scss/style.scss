@@ -29,11 +29,13 @@ body {
 
     & .nav-item {
       & .nav-link {
+        position: relative;
         color: $primaryActiveColor;
         font-size: $primaryLinkSize;
         font-weight: 500;
         text-transform: uppercase;
         line-height: normal;
+        transition: all 0.35s ease 0s;
         &:hover {
           color: $primaryHoverColor;
         }
@@ -41,15 +43,34 @@ body {
       .is-active {
         color: $primaryHoverColor;
       }
+      & .is-first::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 33px;
+        width: 37px;
+        height: 4px;
+        background: $primaryHoverColor;
+        border-radius: 8px;
+      }
     }
   }
 }
 
-& .nav-link:first-child::after {
-  content: "";
-  display: block;
-  width: 37px;
-  height: 4px;
-  background: $primaryHoverColor;
-  border-radius: 8px;
+@media screen and (max-width: 850px) {
+  .header__nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+  .header .header__container {
+    padding: 20px 50px;
+  }
+  .nav > .nav__menu {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .nav .nav__menu .nav-item .is-first::after {
+    top: 25px;
+  }
 }
