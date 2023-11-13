@@ -6,4 +6,50 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.header {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
+  & .header__container {
+    width: 100%;
+    max-width: 1300px;
+    padding: 10px 50px;
+  }
+}
 
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  & .nav__menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    & .nav-item {
+      & .nav-link {
+        color: $primaryActiveColor;
+        font-size: $primaryLinkSize;
+        font-weight: 500;
+        text-transform: uppercase;
+        line-height: normal;
+        &:hover {
+          color: $primaryHoverColor;
+        }
+      }
+      .is-active {
+        color: $primaryHoverColor;
+      }
+    }
+  }
+}
+
+& .nav-link:first-child::after {
+  content: "";
+  display: block;
+  width: 37px;
+  height: 4px;
+  background: $primaryHoverColor;
+  border-radius: 8px;
+}
